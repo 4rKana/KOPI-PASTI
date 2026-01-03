@@ -1,61 +1,302 @@
+/* RESET & GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Efek scroll halus */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: url('assets/bg-pattern.jpg') no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
-  padding: 20px;
-  margin: 0;
-  color: #333;
+    font-family: 'Poppins', sans-serif; /* Font modern untuk teks biasa */
+    background-color: #fcfbf9;
+    color: #4e342e;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif; /* Font klasik untuk judul agar elegan */
+}
+
+/* NAVBAR STYLES */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #3e2723; /* Cokelat Kopi Tua */
+    color: white;
+    position: sticky; /* Menempel saat discroll */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #d7ccc8;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* MAIN / HERO SECTION */
+/* Update Bagian MAIN / HERO SECTION */
+.main-welcome {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* GANTI BAGIAN INI: */
+    /* Gambar latar sekarang adalah biji kopi gelap (Roasted Beans) */
+    background: linear-gradient(rgba(30, 20, 15, 0.8), rgba(30, 20, 15, 0.7)), 
+                url('bg.jpg');
+                
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin-top: -60px;
+    padding-top: 60px;
+}
+
+.welcome-content h1 {
+    font-size: 3.5rem;
+    margin: 10px 0 20px;
+}
+
+.sapaan {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d7ccc8;
+}
+
+.welcome-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+/* TOMBOL */
+.btn-utama {
+    padding: 12px 30px;
+    background-color: #8d6e63;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-utama:hover {
+    background-color: #a1887f;
+    transform: scale(1.05);
+}
+
+/* SECTIONS (Tentang & Layanan) */
+.section-padding {
+    padding: 80px 20px;
+    text-align: center;
 }
 
 .container {
-  max-width: 400px;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    max-width: 1000px;
+    margin: auto;
 }
 
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #333;
-  margin-bottom: 15px;
-  object-fit: cover;
+.bg-cream {
+    background-color: #efebe9;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.grid-card {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
 
-p {
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #555;
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
-.link {
-  display: block;
-  text-decoration: none;
-  color: white;
-  background: #333;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-  font-size: 16px;
-  font-weight: bold;
+.card:hover {
+    transform: translateY(-5px); /* Efek naik saat ditunjuk mouse */
 }
 
-.link:hover {
-  background: #555;
-}
-
+/* FOOTER */
 footer {
-  margin-top: 20px;
-  font-size: 12px;
-  color: #444;
+    background-color: #3e2723;
+    color: #d7ccc8;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.btn-wa {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* RESPONSIF (HP) */
+/* STYLING HAMBURGER MENU */
+.burger {
+    display: none; /* Sembunyi di desktop */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* RESPONSIF (HP) - UPDATE */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Mencegah scroll ke samping */
+    }
+
+    .burger {
+        display: block; /* Munculkan burger di HP */
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh; /* Tinggi menyesuaikan sisa layar */
+        top: 8vh; /* Jarak dari atas (sesuai tinggi navbar) */
+        background-color: #3e2723; /* Samakan dengan warna navbar */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%; /* Lebar menu 50% layar */
+        transform: translateX(100%); /* Sembunyikan ke kanan layar */
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        margin: 30px 0; /* Jarak antar menu lebih renggang */
+        opacity: 0; /* Efek fade in nanti lewat JS */
+    }
+}
+
+/* Class tambahan untuk JavaScript saat menu aktif */
+.nav-active {
+    transform: translateX(0%);
+}
+
+/* Animasi Fade In untuk Link */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Animasi Ikon Burger menjadi 'X' */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* DAFTAR MENU HARGA */
+.menu-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+    text-align: left; /* Agar daftar menu rata kiri */
+}
+
+.menu-category {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.menu-category h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8d6e63;
+    border-bottom: 2px solid #efebe9;
+    padding-bottom: 10px;
+}
+
+.price-list {
+    list-style: none;
+}
+
+.price-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #d7ccc8; /* Garis putus-putus pemisah */
+    padding-bottom: 5px;
+}
+
+.price-list li .price {
+    font-weight: bold;
+    color: #3e2723;
+}
+
+/* STYLING PETA LOKASI */
+.map-container {
+    margin: 20px auto; /* Jarak atas bawah */
+    width: 100%;
+    max-width: 600px; /* Lebar maksimal agar tidak terlalu lebar di desktop */
+    height: 300px; /* Tinggi peta */
+    border-radius: 10px; /* Sudut melengkung agar cantik */
+    overflow: hidden; /* Agar sudut melengkung bekerja pada iframe */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Bayangan agar timbul */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }

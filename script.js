@@ -1,18 +1,25 @@
-function diagnosa() {
-  const gejalaTerpilih = Array.from(document.querySelectorAll('input[name="gejala"]:checked')).map(el => el.value);
-  let hasil = "";
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
 
-  if (gejalaTerpilih.includes("demam") && gejalaTerpilih.includes("batuk") && gejalaTerpilih.includes("sakit_tenggorokan")) {
-    hasil = "Kemungkinan Anda terkena Flu.";
-  } else if (gejalaTerpilih.includes("mual") && gejalaTerpilih.includes("diare")) {
-    hasil = "Kemungkinan Anda mengalami Keracunan Makanan.";
-  } else if (gejalaTerpilih.includes("demam") && gejalaTerpilih.includes("sakit_kepala") && gejalaTerpilih.includes("mual")) {
-    hasil = "Kemungkinan Anda terkena Demam Berdarah atau Typus.";
-  } else if (gejalaTerpilih.length === 0) {
-    hasil = "Silakan pilih minimal satu gejala.";
-  } else {
-    hasil = "Gejala yang Anda alami belum dapat didiagnosa secara spesifik. Silakan konsultasi ke dokter.";
-  }
+    burger.addEventListener('click', () => {
+        // 1. Toggle Navigasi (Buka/Tutup)
+        nav.classList.toggle('nav-active');
 
-  document.getElementById("hasil").innerText = hasil;
+        // 2. Animasi Link (Muncul satu per satu)
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
+
+        // 3. Animasi Burger (Jadi tombol X)
+        burger.classList.toggle('toggle');
+    });
 }
+
+// Jalankan fungsi
+navSlide();
