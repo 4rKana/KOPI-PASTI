@@ -1,11 +1,31 @@
 /* RESET & GLOBAL STYLES */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth; /* Efek scroll halus */
 }
+/* Membuat garis aksen di bawah semua judul H2 */
+h2 {
+    position: relative;
+    display: inline-block; /* Agar garis mengikuti panjang teks */
+    margin-bottom: 40px; /* Memberi jarak lebih ke konten di bawahnya */
+    /* Opsional: nambah bayangan teks tipis agar lebih pop-up */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+}
 
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Mulai dari tengah */
+    bottom: -10px; /* Jarak garis dari teks */
+    transform: translateX(-50%); /* Geser ke kiri 50% agar benar-benar di tengah */
+    width: 60px; /* Lebar garis */
+    height: 3px; /* Tebal garis */
+    background-color: #8d6e63; /* Warna garis aksen */
+    border-radius: 2px;
+}
 body {
     font-family: 'Poppins', sans-serif; /* Font modern untuk teks biasa */
     background-color: #fcfbf9;
@@ -288,8 +308,17 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-    border-bottom: 1px dashed #d7ccc8; /* Garis putus-putus pemisah */
-    padding-bottom: 5px;
+    border-bottom: 1px dashed #d7ccc8;
+    padding: 10px 5px; /* Tambah padding sedikit */
+    transition: all 0.3s ease; /* Animasi halus */
+    border-radius: 5px; /* Sudut sedikit melengkung */
+}
+
+/* Efek saat item menu disorot kursor */
+.price-list li:hover {
+    background-color: #fcfbf9; /* Latar belakang jadi sedikit lebih terang */
+    padding-left: 15px; /* Teks bergeser sedikit ke kanan */
+    border-bottom: 1px solid #8d6e63; /* Garis putus-putus jadi garis tegas */
 }
 
 .price-list li .price {
@@ -314,3 +343,4 @@ footer {
     border: 0;
 
 }
+
