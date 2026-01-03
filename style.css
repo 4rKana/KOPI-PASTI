@@ -217,39 +217,48 @@ footer {
 
 /* RESPONSIF (HP) - UPDATE */
 @media (max-width: 768px) {
+    /* 1. Mencegah layar geser kanan-kiri */
     body {
-        overflow-x: hidden; /* Mencegah scroll ke samping */
+        overflow-x: hidden;
+        width: 100%;
     }
 
-    .burger {
-        display: block; /* Munculkan burger di HP */
+    .navbar {
+        justify-content: space-between; /* Pastikan burger ada di kanan, logo di kiri */
     }
 
     .nav-links {
-        position: absolute;
-        right: 0px;
-        height: 92vh; /* Tinggi menyesuaikan sisa layar */
-        top: 8vh; /* Jarak dari atas (sesuai tinggi navbar) */
-        background-color: #3e2723; /* Samakan dengan warna navbar */
-        display: flex;
+        display: flex; /* Kembalikan display flex agar JS bisa bekerja */
+        position: fixed; /* GANTI JADI FIXED (Agar menu diam saat discroll) */
+        right: 0;
+        top: 0; /* Mulai dari paling atas layar */
+        height: 100vh; /* Tinggi 100% layar HP */
+        background-color: #3e2723;
         flex-direction: column;
         align-items: center;
-        width: 50%; /* Lebar menu 50% layar */
-        transform: translateX(100%); /* Sembunyikan ke kanan layar */
-        transition: transform 0.5s ease-in;
+        justify-content: center; /* Menu rata tengah vertikal */
+        width: 60%; /* Lebar menu 60% layar */
+        transform: translateX(100%); /* Sembunyikan ke kanan */
+        transition: transform 0.4s ease-in-out;
+        z-index: 999; /* Pastikan menu di atas segalanya */
+        box-shadow: -2px 0 10px rgba(0,0,0,0.5); /* Bayangan agar terlihat batasnya */
     }
 
     .nav-links li {
-        margin: 30px 0; /* Jarak antar menu lebih renggang */
-        opacity: 0; /* Efek fade in nanti lewat JS */
+        margin: 25px 0;
+        opacity: 0; /* Untuk animasi fade in */
+    }
+    
+    /* Tampilkan Burger Menu */
+    .burger {
+        display: block;
+        z-index: 1000; /* Burger harus di atas menu slide */
+    }
+    
+    .nav-active {
+        transform: translateX(0%);
     }
 }
-
-/* Class tambahan untuk JavaScript saat menu aktif */
-.nav-active {
-    transform: translateX(0%);
-}
-
 /* Animasi Fade In untuk Link */
 @keyframes navLinkFade {
     from {
@@ -343,4 +352,5 @@ footer {
     border: 0;
 
 }
+
 
